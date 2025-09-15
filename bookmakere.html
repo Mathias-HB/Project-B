@@ -3,41 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bookmakere – Project B</title>
-  <link rel="icon" href="logo.png" type="image/png">
+  <title>Project B – Bookmakere</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
-    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; }
-    .logo { font-size:1.8rem; font-weight:bold; }
-    nav ul.menu { list-style:none; display:flex; gap:2rem; }
-    nav ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; }
-    nav ul.menu > li:hover > a { color:#00ccff; }
-    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
-    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
-    .hero p { font-size:1.1rem; max-width:600px; margin:auto; }
-    .platform-section { max-width:1100px; margin:3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; padding:0 2rem; }
-    .kort { background:white; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:2rem 1.5rem; text-align:center; }
-    .kort img.logo-kort { height:60px; max-width:160px; object-fit:contain; margin:0 auto 1rem; display:block; }
-    .kort h3 { font-size:1.1rem; margin-bottom:0.8rem; font-weight:600; }
-    .kort ul { list-style:none; padding:0; margin-bottom:1rem; }
-    .kort ul li { margin:0.3rem 0; font-size:0.95rem; }
-    .kort a { text-decoration:none; color:white; background:#0b1e3d; padding:0.5rem 1rem; border-radius:6px; display:inline-block; transition:background 0.2s; }
-    .kort a:hover { background:#0077cc; }
-    footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
-    @media(max-width:768px) { nav ul.menu { flex-direction:column; gap:1rem; } }
+    /* Samme base-styling som resten af siderne (header/hero/footer/kort) */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:#f7f9fc;color:#333;}
+    header{background:#0b1e3d;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;color:white;position:relative;z-index:1000;}
+    .logo{display:flex;align-items:center;}
+    .logo-img{height:88px;width:auto;display:block;}
+    nav{position:relative;}
+    ul.menu{list-style:none;display:flex;gap:2rem;align-items:center;}
+    ul.menu>li{position:relative;}
+    ul.menu>li>a{color:white;text-decoration:none;font-weight:500;padding:0.5rem;display:block;transition:color 0.2s;}
+    ul.menu>li:hover>a{color:#00ccff;}
+    .hero{padding:4rem 2rem;text-align:center;background:linear-gradient(to right,#0b1e3d,#153c5d);color:white;}
+    .hero h1{font-size:2.5rem;margin-bottom:1rem;}
+    .hero p{font-size:1.1rem;max-width:600px;margin:auto;}
+    footer{text-align:center;padding:1.5rem;background:#0b1e3d;color:white;font-size:0.9rem;margin-top:4rem;}
+
+    /* Kort/grid layout (samme som andre sider) */
+    .platform-section{max-width:1100px;margin:3rem auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;padding:0 2rem;}
+    .kort{background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);padding:1.6rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.6rem;}
+    .kort img.logo-kort{height:60px;max-width:160px;object-fit:contain;margin:0 auto 0.6rem;display:block;}
+    .kort h3{font-size:1.05rem;margin-bottom:0.4rem;font-weight:600;}
+    .kort ul{list-style:none;padding:0;margin-bottom:0.8rem;}
+    .kort ul li{margin:0.25rem 0;font-size:0.95rem;color:#333;}
+    .kort .cta{margin-top:auto;}
+    .kort a.button{text-decoration:none;color:white;background:#0b1e3d;padding:0.55rem 1rem;border-radius:6px;display:inline-block;transition:background 0.2s;}
+    .kort a.button:hover{background:#0077cc;}
+    @media(max-width:768px){ ul.menu{flex-direction:column;gap:1rem;} }
   </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html" class="logo">Project B</a>
+  <a href="index.html" class="logo"><img src="logo.png" alt="Project B" class="logo-img"></a>
   <nav>
     <ul class="menu">
       <li><a href="tv.html">TV</a></li>
       <li><a href="tips.html">Tips</a></li>
       <li><a href="forum.html">Forum</a></li>
-      <li><a href="bookmakere.html" class="active">Bookmakere</a></li>
+      <li><a href="bookmakere.html" aria-current="page">Bookmakere</a></li>
       <li><a href="nyhedsbrev.html">Nyhedsbrev</a></li>
       <li><a href="login.html">Log ind</a></li>
     </ul>
@@ -45,71 +52,99 @@
 </header>
 
 <section class="hero">
-  <h1>Find de bedste bookmaker tilbud</h1>
-  <p>Se bonusser, odds og eksklusive tilbud fra de mest populære betting sites i Danmark</p>
+  <h1>Sammenlign bookmakere og velkomstbonusser</h1>
+  <p>Find hurtig oversigt over bonusser, funktioner og hvor du får de bedste odds — klar og enkel sammenligning.</p>
 </section>
 
-<section class="platform-section">
-  <div class="kort">
-    <img src="bet365-logo.png" alt="Bet365 logo" class="logo-kort">
-    <h3>Bet365</h3>
-    <ul>
-      <li>Stor sportsbook</li>
-      <li>Live betting</li>
-      <li>Velkomstbonus op til 1000 DKK</li>
-      <li>Mobil app til betting</li>
-    </ul>
-    <a href="https://www.bet365.com" target="_blank" rel="noopener noreferrer">Besøg Bet365</a>
-  </div>
+<main>
+  <section class="platform-section">
 
-  <div class="kort">
-    <img src="betano-logo.png" alt="Betano logo" class="logo-kort">
-    <h3>Betano</h3>
-    <ul>
-      <li>Daglige oddsboosts</li>
-      <li>Live streaming af kampe</li>
-      <li>Bonuskode til nye kunder</li>
-      <li>Mobilvenlig platform</li>
-    </ul>
-    <a href="https://www.betano.com" target="_blank" rel="noopener noreferrer">Besøg Betano</a>
-  </div>
+    <div class="kort">
+      <img src="bet365-logo.png" alt="Bet365 logo" class="logo-kort">
+      <h3>Bet365</h3>
+      <ul>
+        <li>Stor sportsbook & live betting</li>
+        <li>Live streaming af kampe</li>
+        <li>Velkomstbonus: Op til 1000 DKK*</li>
+        <li>Brugervenlig app</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.bet365.com" target="_blank" rel="noopener noreferrer">Besøg Bet365</a>
+      </div>
+    </div>
 
-  <div class="kort">
-    <img src="mrgreen-logo.png" alt="MrGreen logo" class="logo-kort">
-    <h3>MrGreen</h3>
-    <ul>
-      <li>Live betting & casino</li>
-      <li>Velkomstbonus op til 500 DKK</li>
-      <li>24/7 support</li>
-      <li>Brugervenlig platform</li>
-    </ul>
-    <a href="https://www.mrgreen.com" target="_blank" rel="noopener noreferrer">Besøg MrGreen</a>
-  </div>
+    <div class="kort">
+      <img src="betano-logo.png" alt="Betano logo" class="logo-kort">
+      <h3>Betano</h3>
+      <ul>
+        <li>Daglige odds-boosts</li>
+        <li>Live streaming & statistik</li>
+        <li>Bonuskode til nye kunder</li>
+        <li>Mobilvenlig platform</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.betano.com" target="_blank" rel="noopener noreferrer">Besøg Betano</a>
+      </div>
+    </div>
 
-  <div class="kort">
-    <img src="oddset-logo.png" alt="Oddset logo" class="logo-kort">
-    <h3>Oddset</h3>
-    <ul>
-      <li>Statsejet bookmaker</li>
-      <li>Live betting</li>
-      <li>Nem adgang for alle</li>
-      <li>Ingen skjulte gebyrer</li>
-    </ul>
-    <a href="https://www.odds.dk" target="_blank" rel="noopener noreferrer">Besøg Oddset</a>
-  </div>
+    <div class="kort">
+      <img src="unibet-logo.png" alt="Unibet logo" class="logo-kort">
+      <h3>Unibet</h3>
+      <ul>
+        <li>Bredt udvalg af sportsgrene</li>
+        <li>Live betting og streaming</li>
+        <li>Velkomstbonus til nye kunder</li>
+        <li>Kendt og troværdig platform</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.unibet.com" target="_blank" rel="noopener noreferrer">Besøg Unibet</a>
+      </div>
+    </div>
 
-  <div class="kort">
-    <img src="unibet-logo.png" alt="Unibet logo" class="logo-kort">
-    <h3>Unibet</h3>
-    <ul>
-      <li>Bredt udvalg af sportsgrene</li>
-      <li>Live betting & streaming</li>
-      <li>Velkomstbonus</li>
-      <li>Mobil app</li>
-    </ul>
-    <a href="https://www.unibet.com" target="_blank" rel="noopener noreferrer">Besøg Unibet</a>
-  </div>
-</section>
+    <div class="kort">
+      <img src="mrgreen-logo.png" alt="MrGreen logo" class="logo-kort">
+      <h3>MrGreen</h3>
+      <ul>
+        <li>Sportsbook + casino</li>
+        <li>Velkomstbonus: Gratis spins / bonus</li>
+        <li>24/7 kundesupport</li>
+        <li>Brugervenlig platform</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.mrgreen.com" target="_blank" rel="noopener noreferrer">Besøg MrGreen</a>
+      </div>
+    </div>
+
+    <div class="kort">
+      <img src="oddset-logo.png" alt="Oddset logo" class="logo-kort">
+      <h3>Oddset</h3>
+      <ul>
+        <li>Dansk, statsejet spiller</li>
+        <li>Fokus på klassiske væddemål</li>
+        <li>Nem registrering</li>
+        <li>Ingen skjulte gebyrer</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.odds.dk" target="_blank" rel="noopener noreferrer">Besøg Oddset</a>
+      </div>
+    </div>
+
+    <div class="kort">
+      <img src="betfair-logo.png" alt="Betfair logo" class="logo-kort">
+      <h3>Betfair</h3>
+      <ul>
+        <li>Exchange-marked & sportsbook</li>
+        <li>God til waarde-betting</li>
+        <li>Lav margin på exchange</li>
+        <li>Stort likviditet</li>
+      </ul>
+      <div class="cta">
+        <a class="button" href="https://www.betfair.com" target="_blank" rel="noopener noreferrer">Besøg Betfair</a>
+      </div>
+    </div>
+
+  </section>
+</main>
 
 <footer>
   &copy; 2025 Project B. Spil ansvarligt.
