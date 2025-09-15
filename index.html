@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project B – Nyheder</title>
-<link rel="stylesheet" href="style.css">
-<style>
-/* Base Project B / FormueGuiden style */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Segoe UI', sans-serif; background-color:#f7f9fc; color:#333; }
-header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; position:relative; z-index:1000; }
-.logo { display:flex; align-items:center; }
-.logo-img { height:88px; width:auto; display:block; }
-nav { position:relative; }
-ul.menu { list-style:none; display:flex; gap:2rem; }
-ul.menu > li { position:relative; }
-ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; transition: color 0.2s ease; }
-ul.menu > li:hover > a { color:#00ccff; }
-.dropdown { position:absolute; top:100%; left:0; background:white; padding:1rem; border-radius:6px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:none; flex-direction:column; min-width:200px; z-index:999; }
-.dropdown a { color:#0b1e3d; text-decoration:none; padding:0.4rem 0; }
-.dropdown a:hover { color:#0077cc; }
-ul.menu > li:hover .dropdown { display:flex; }
-.hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
-.hero h1 { font-size:2.5rem; margin-bottom:1rem; }
-.hero p { font-size:1.1rem; max-width:600px; margin:auto; }
-footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project B – Nyheder</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Base Project B / FormueGuiden style */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
+    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; position:relative; z-index:1000; }
+    .logo { display:flex; align-items:center; }
+    .logo-img { height:88px; width:auto; display:block; }
+    nav { position:relative; }
+    ul.menu { list-style:none; display:flex; gap:2rem; }
+    ul.menu > li { position:relative; }
+    ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; transition: color 0.2s ease; }
+    ul.menu > li:hover > a { color:#00ccff; }
+    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; max-width:600px; margin:auto; }
+    footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
 
-/* Tipsbladet-inspired news layout */
-.news-container { max-width:1100px; margin:3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; padding:0 2rem; }
-.news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; }
-.news-card:hover { transform:translateY(-5px); }
-.news-card img { width:100%; height:180px; object-fit:cover; }
-.news-card .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
-.news-card .category { font-size:0.85rem; color:#0077cc; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
-.news-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
-.news-card p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
-.news-card a { text-decoration:none; color:white; background:#0b1e3d; padding:0.5rem 1rem; border-radius:6px; text-align:center; display:inline-block; transition:background 0.2s; }
-.news-card a:hover { background:#0077cc; }
-
-@media(max-width:768px){ ul.menu { flex-direction:column; gap:1rem; } .dropdown { position:static; box-shadow:none; background:none; padding:0; } .dropdown a { padding-left:1rem; } }
-</style>
+    /* News layout */
+    .tabs { display:flex; justify-content:center; margin:2rem 0; gap:1rem; flex-wrap:wrap; }
+    .tab-btn { background:white; border:1px solid #0b1e3d; border-radius:6px; padding:0.5rem 1rem; cursor:pointer; font-weight:500; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background:#0b1e3d; color:white; }
+    .news-container { max-width:1100px; margin:0 auto 3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; padding:0 2rem; }
+    .news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; }
+    .news-card:hover { transform:translateY(-5px); }
+    .news-card img { width:100%; height:180px; object-fit:cover; }
+    .news-card .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
+    .news-card .category { font-size:0.85rem; color:#0077cc; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
+    .news-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
+    .news-card p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
+    .news-card a { text-decoration:none; color:white; background:#0b1e3d; padding:0.5rem 1rem; border-radius:6px; text-align:center; display:inline-block; transition:background 0.2s; }
+    .news-card a:hover { background:#0077cc; }
+  </style>
 </head>
 <body>
 
@@ -62,52 +59,100 @@ footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:whit
   <p>Hold dig opdateret på danske og internationale ligaer, analyser og betting tips</p>
 </section>
 
-<section class="news-container">
-  <!-- Example news article -->
-  <div class="news-card">
-    <img src="fck_vs_brondby.jpg" alt="FCK vs Brøndby">
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="danmark">Danmark</button>
+  <button class="tab-btn" data-tab="england">England</button>
+  <button class="tab-btn" data-tab="spanien">Spanien</button>
+  <button class="tab-btn" data-tab="italien">Italien</button>
+</div>
+
+<!-- News cards -->
+<div class="news-container">
+
+  <!-- Danmark -->
+  <div class="news-card" data-tab="danmark">
+    <img src="https://pixabay.com/get/57e0d14a4f56a914f1dc8460962e33791c3ad6e04e5074407c2e7ed49e4ac1_640.jpg" alt="FC København vinder topkampen">
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>FC København vinder topkampen</h3>
-      <p>FC København spillede en fantastisk kamp mod Brøndby IF, og sikrede sig tre vigtige point i Superligaen.</p>
+      <p>FC København spillede en fantastisk kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <div class="news-card">
-    <img src="manu_vs_liverpool.jpg" alt="Manchester United vs Liverpool">
+  <div class="news-card" data-tab="danmark">
+    <img src="https://pixabay.com/get/57e0d14a4f56a914f1dc8460962e33791c3ad6e04e5074407c2e7ed49e4ac1_640.jpg" alt="Odense besejrer Silkeborg">
+    <div class="news-content">
+      <div class="category">Superligaen</div>
+      <h3>Odense besejrer Silkeborg</h3>
+      <p>Odense vandt med 2-1 og overtager tredjepladsen i Superligaen efter en spændende kamp.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+
+  <!-- England -->
+  <div class="news-card" data-tab="england" style="display:none;">
+    <img src="https://pixabay.com/get/57e0d14a4f56a914f1dc8460962e33791c3ad6e04e5074407c2e7ed49e4ac1_640.jpg" alt="Manchester United topper ligaen">
     <div class="news-content">
       <div class="category">Premier League</div>
       <h3>Manchester United topper ligaen</h3>
-      <p>Manchester United tog sejren mod Liverpool og fortsætter jagten på Premier League-titlen med imponerende form.</p>
+      <p>Manchester United tog sejren mod Liverpool og fortsætter jagten på Premier League-titlen.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <div class="news-card">
-    <img src="real_vs_barca.jpg" alt="Real Madrid vs Barcelona">
+  <!-- Spanien -->
+  <div class="news-card" data-tab="spanien" style="display:none;">
+    <img src="https://pixabay.com/get/57e0d14a4f56a914f1dc8460962e33791c3ad6e04e5074407c2e7ed49e4ac1_640.jpg" alt="Real Madrid vinder El Clasico">
     <div class="news-content">
       <div class="category">La Liga</div>
       <h3>Real Madrid vinder El Clasico</h3>
-      <p>Real Madrid tog tre point i den klassiske kamp mod Barcelona og styrkede deres position i toppen af La Liga.</p>
+      <p>Real Madrid sikrede sejren over Barcelona og styrkede deres position i toppen af La Liga.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <div class="news-card">
-    <img src="juventus_vs_inter.jpg" alt="Juventus vs Inter">
+  <!-- Italien -->
+  <div class="news-card" data-tab="italien" style="display:none;">
+    <img src="https://pixabay.com/get/57e0d14a4f56a914f1dc8460962e33791c3ad6e04e5074407c2e7ed49e4ac1_640.jpg" alt="Juventus slår Inter">
     <div class="news-content">
       <div class="category">Serie A</div>
-      <h3>Juventus slår Inter i topkamp</h3>
-      <p>Juventus leverede en stærk præstation og sikrede sejren over Inter Milan i en afgørende Serie A-kamp.</p>
+      <h3>Juventus slår Inter</h3>
+      <p>Juventus leverede en stærk præstation og sikrede sejren over Inter Milan i Serie A.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-</section>
+
+</div>
 
 <footer>
   &copy; 2025 Project B. Spil ansvarligt.
 </footer>
+
+<script>
+// Tab functionality
+const tabs = document.querySelectorAll('.tab-btn');
+const newsCards = document.querySelectorAll('.news-card');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Activate button
+    tabs.forEach(btn => btn.classList.remove('active'));
+    tab.classList.add('active');
+
+    const tabName = tab.dataset.tab;
+    // Show/hide cards
+    newsCards.forEach(card => {
+      if(card.dataset.tab === tabName) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 
 </body>
 </html>
