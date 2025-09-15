@@ -1,31 +1,49 @@
-import React from 'react'
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Project B - Bookmakere</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">Project B</div>
+<nav>
+  <a href="tv.html">TV</a>
+  <a href="tips.html">Tips</a>
+  <a href="forum.html">Forum</a>
+  <a href="bookmakere.html">Bookmakere</a>
+  <a href="nyhedsbrev.html">Nyhedsbrev</a>
+  <a href="login.html" class="login">Log ind</a>
+</nav>
+</header>
 
-const bookies = [
-  {id:'betano', name:'Betano', bonus:'200% op til 1000kr', logo:'https://via.placeholder.com/120x40?text=Betano', env:'VITE_AFF_BETANO'},
-  {id:'bet365', name:'Bet365', bonus:'100% op til 500kr', logo:'https://via.placeholder.com/120x40?text=Bet365', env:'VITE_AFF_BET365'},
-  {id:'mrgreen', name:'MrGreen', bonus:'Gratis spins', logo:'https://via.placeholder.com/120x40?text=MrGreen', env:'VITE_AFF_MRGREEN'},
-]
+<main>
+<h1>Bookmakere</h1>
+<p>Sammenlign bookmakere og bonusser.</p>
 
-function getAffiliate(envKey){ return import.meta.env[envKey] || '#' }
+<div class="bookmaker">
+  <img src="images/betano.png" alt="Betano">
+  <h2>Betano</h2>
+  <p>200% op til 1000kr</p>
+  <button>Gå til Betano</button>
+</div>
+<div class="bookmaker">
+  <img src="images/bet365.png" alt="Bet365">
+  <h2>Bet365</h2>
+  <p>100% op til 500kr</p>
+  <button>Gå til Bet365</button>
+</div>
+<div class="bookmaker">
+  <img src="images/mrgreen.png" alt="MrGreen">
+  <h2>MrGreen</h2>
+  <p>Gratis spins</p>
+  <button>Gå til MrGreen</button>
+</div>
+</main>
 
-export default function Bookmakere(){
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Bookmakere</h1>
-      <p className="text-gray-600 mb-6">Sammenlign bookmakere og find bedste velkomstbonus.</p>
-
-      <div className="grid md:grid-cols-3 gap-6">
-        {bookies.map(b=> (
-          <div key={b.id} className="bg-white p-4 rounded shadow flex flex-col">
-            <img src={b.logo} alt={b.name} className="mb-3 h-10 object-contain" />
-            <div className="font-semibold">{b.name}</div>
-            <div className="text-sm text-gray-600">{b.bonus}</div>
-            <div className="mt-4">
-              <a href={getAffiliate(b.env)} target="_blank" rel="noopener noreferrer" className="block text-center px-3 py-2 bg-green-600 text-white rounded">Tilmeld / få bonus</a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+<footer>
+<p>© 2025 Project B — Affiliate site. Spil ansvarligt.</p>
+</footer>
+</body>
+</html>
