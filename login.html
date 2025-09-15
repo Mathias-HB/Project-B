@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<title>Project B - Log ind</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project B – Log ind</title>
 <link rel="stylesheet" href="style.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f7f9fc;color:#333;}
+header{background:#0b1e3d;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;color:white;position:relative;z-index:1000;}
+.logo-img{height:88px;width:auto;display:block;}
+ul.menu{list-style:none;display:flex;gap:2rem;}
+ul.menu>li>a{color:white;text-decoration:none;font-weight:500;padding:0.5rem;display:block;transition:color 0.2s;}
+ul.menu>li:hover>a{color:#00ccff;}
+.hero{padding:4rem 2rem;text-align:center;background:linear-gradient(to right,#0b1e3d,#153c5d);color:white;}
+.hero h1{font-size:2.5rem;margin-bottom:1rem;}
+.hero p{font-size:1.1rem;max-width:600px;margin:auto;}
+.login-container{max-width:400px;margin:3rem auto;background:white;padding:2rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.login-container h2{text-align:center;margin-bottom:1rem;}
+.login-container input{width:100%;padding:0.7rem;margin-bottom:1rem;border-radius:6px;border:1px solid #ccc;font-size:1rem;}
+.login-container button{width:100%;padding:0.7rem;background:#0b1e3d;color:white;border:none;border-radius:6px;font-size:1rem;cursor:pointer;transition:background 0.2s;}
+.login-container button:hover{background:#0077cc;}
+footer{text-align:center;padding:1.5rem;background:#0b1e3d;color:white;font-size:0.9rem;margin-top:4rem;}
+</style>
 </head>
 <body>
+
 <header>
-<div class="logo">Project B</div>
-<nav>
-  <a href="tv.html">TV</a>
-  <a href="tips.html">Tips</a>
-  <a href="forum.html">Forum</a>
-  <a href="bookmakere.html">Bookmakere</a>
-  <a href="nyhedsbrev.html">Nyhedsbrev</a>
-  <a href="login.html" class="login">Log ind</a>
-</nav>
+  <a href="index.html" class="logo"><img src="logo.png" alt="Project B" class="logo-img"></a>
+  <nav>
+    <ul class="menu">
+      <li><a href="tv.html">TV</a></li>
+      <li><a href="tips.html">Tips</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="bookmakere.html">Bookmakere</a></li>
+      <li><a href="nyhedsbrev.html">Nyhedsbrev</a></li>
+      <li><a href="login.html">Log ind</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
-<h1>Log ind</h1>
-<form>
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-<button type="submit">Log ind</button>
-</form>
-</main>
+<section class="hero">
+  <h1>Log ind på Project B</h1>
+  <p>Få adgang til tips, forum og eksklusive analyser</p>
+</section>
+
+<div class="login-container">
+  <h2>Log ind</h2>
+  <form>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Adgangskode" required>
+    <button type="submit">Log ind</button>
+  </form>
+  <p style="text-align:center;margin-top:1rem;">Har du ikke en konto? <a href="#">Opret her</a></p>
+</div>
 
 <footer>
-<p>© 2025 Project B — Affiliate site. Spil ansvarligt.</p>
+  &copy; 2025 Project B. Spil ansvarligt.
 </footer>
+
 </body>
 </html>
