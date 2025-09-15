@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --accent: #0b7df3;
+  --dark: #0b0b0b;
+}
+
+body{ @apply bg-gray-50 text-gray-800; }
+
+.login-modal { background: rgba(0,0,0,0.95); }
