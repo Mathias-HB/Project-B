@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bookmakere – Project B</title>
-<link rel="icon" href="logo.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookmakere – Project B</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
+    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; }
+    .logo { font-size:1.8rem; font-weight:bold; }
+    nav ul.menu { list-style:none; display:flex; gap:2rem; }
+    nav ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; }
+    nav ul.menu > li:hover > a { color:#00ccff; }
+    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; max-width:600px; margin:auto; }
+    .platform-section { max-width:1100px; margin:3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; padding:0 2rem; }
+    .kort { background:white; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:2rem 1.5rem; text-align:center; }
+    .kort img.logo-kort { height:60px; max-width:160px; object-fit:contain; margin:0 auto 1rem; display:block; }
+    .kort h3 { font-size:1.1rem; margin-bottom:0.8rem; font-weight:600; }
+    .kort ul { list-style:none; padding:0; margin-bottom:1rem; }
+    .kort ul li { margin:0.3rem 0; font-size:0.95rem; }
+    .kort a { text-decoration:none; color:white; background:#0b1e3d; padding:0.5rem 1rem; border-radius:6px; display:inline-block; transition:background 0.2s; }
+    .kort a:hover { background:#0077cc; }
+    footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
+    @media(max-width:768px) { nav ul.menu { flex-direction:column; gap:1rem; } }
+  </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html"><div class="logo">Project B</div></a>
+  <a href="index.html" class="logo">Project B</a>
   <nav>
     <ul class="menu">
       <li><a href="tv.html">TV</a></li>
@@ -23,69 +44,72 @@
   </nav>
 </header>
 
-<main>
-  <section class="platform-section">
-    <div class="kort">
-      <img src="https://www.bet365.dk/sportsbook-static/favicons/favicon-192x192.png" alt="Bet365 logo" class="logo-kort" />
-      <h3>Bet365</h3>
-      <ul>
-        <li>Stor sportsbook</li>
-        <li>Live betting</li>
-        <li>Velkomstbonus op til 1000 DKK</li>
-        <li>App til mobil</li>
-      </ul>
-      <a href="https://www.bet365.com" target="_blank" rel="noopener noreferrer">Besøg Bet365</a>
-    </div>
+<section class="hero">
+  <h1>Find de bedste bookmaker tilbud</h1>
+  <p>Se bonusser, odds og eksklusive tilbud fra de mest populære betting sites i Danmark</p>
+</section>
 
-    <div class="kort">
-      <img src="https://media.licdn.com/dms/image/v2/D4D0BAQGT9ACR8mLaZQ/company-logo_200_200/B4DZkOySNxH0AM-/0/1756889687253/betano_logo?e=2147483647&v=beta&t=uXk7VcOKjxXdPiZ_YMIUMKMgYnfkkF5RifAeb_OdXOg" alt="Betano logo" class="logo-kort" />
-      <h3>Betano</h3>
-      <ul>
-        <li>Oddsboosts dagligt</li>
-        <li>Live streaming af kampe</li>
-        <li>Bonuskode til nye kunder</li>
-        <li>Mobilvenlig platform</li>
-      </ul>
-      <a href="https://www.betano.com" target="_blank" rel="noopener noreferrer">Besøg Betano</a>
-    </div>
+<section class="platform-section">
+  <div class="kort">
+    <img src="bet365-logo.png" alt="Bet365 logo" class="logo-kort">
+    <h3>Bet365</h3>
+    <ul>
+      <li>Stor sportsbook</li>
+      <li>Live betting</li>
+      <li>Velkomstbonus op til 1000 DKK</li>
+      <li>Mobil app til betting</li>
+    </ul>
+    <a href="https://www.bet365.com" target="_blank" rel="noopener noreferrer">Besøg Bet365</a>
+  </div>
 
-    <div class="kort">
-      <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/56f16ff20000ff00058a8209/0x0.png" alt="MrGreen logo" class="logo-kort" />
-      <h3>MrGreen</h3>
-      <ul>
-        <li>Populær sportsbook i Danmark</li>
-        <li>Live betting og casino</li>
-        <li>Velkomstbonus op til 500 DKK</li>
-        <li>24/7 support</li>
-      </ul>
-      <a href="https://www.mrgreen.com" target="_blank" rel="noopener noreferrer">Besøg MrGreen</a>
-    </div>
+  <div class="kort">
+    <img src="betano-logo.png" alt="Betano logo" class="logo-kort">
+    <h3>Betano</h3>
+    <ul>
+      <li>Daglige oddsboosts</li>
+      <li>Live streaming af kampe</li>
+      <li>Bonuskode til nye kunder</li>
+      <li>Mobilvenlig platform</li>
+    </ul>
+    <a href="https://www.betano.com" target="_blank" rel="noopener noreferrer">Besøg Betano</a>
+  </div>
 
-    <div class="kort">
-      <img src="https://play-lh.googleusercontent.com/AVD_AQ_V7Zfz962hg_P_fXz4r1prTs8FfHjr-Lz_D0Dqc7vSQwMEieVOEHIY6W3HGxt1" alt="Oddset logo" class="logo-kort" />
-      <h3>Oddset</h3>
-      <ul>
-        <li>Statsejet bookmaker</li>
-        <li>Nem tilgængelighed</li>
-        <li>Live betting på fodbold</li>
-        <li>Ingen skjulte gebyrer</li>
-      </ul>
-      <a href="https://www.odds.dk" target="_blank" rel="noopener noreferrer">Besøg Oddset</a>
-    </div>
+  <div class="kort">
+    <img src="mrgreen-logo.png" alt="MrGreen logo" class="logo-kort">
+    <h3>MrGreen</h3>
+    <ul>
+      <li>Live betting & casino</li>
+      <li>Velkomstbonus op til 500 DKK</li>
+      <li>24/7 support</li>
+      <li>Brugervenlig platform</li>
+    </ul>
+    <a href="https://www.mrgreen.com" target="_blank" rel="noopener noreferrer">Besøg MrGreen</a>
+  </div>
 
-    <div class="kort">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Unibet-Logo-white.jpg" alt="Unibet logo" class="logo-kort" />
-      <h3>Unibet</h3>
-      <ul>
-        <li>Bredt udvalg af sportsgrene</li>
-        <li>Live betting og streaming</li>
-        <li>Velkomstbonus til nye kunder</li>
-        <li>Brugervenlig app</li>
-      </ul>
-      <a href="https://www.unibet.com" target="_blank" rel="noopener noreferrer">Besøg Unibet</a>
-    </div>
-  </section>
-</main>
+  <div class="kort">
+    <img src="oddset-logo.png" alt="Oddset logo" class="logo-kort">
+    <h3>Oddset</h3>
+    <ul>
+      <li>Statsejet bookmaker</li>
+      <li>Live betting</li>
+      <li>Nem adgang for alle</li>
+      <li>Ingen skjulte gebyrer</li>
+    </ul>
+    <a href="https://www.odds.dk" target="_blank" rel="noopener noreferrer">Besøg Oddset</a>
+  </div>
+
+  <div class="kort">
+    <img src="unibet-logo.png" alt="Unibet logo" class="logo-kort">
+    <h3>Unibet</h3>
+    <ul>
+      <li>Bredt udvalg af sportsgrene</li>
+      <li>Live betting & streaming</li>
+      <li>Velkomstbonus</li>
+      <li>Mobil app</li>
+    </ul>
+    <a href="https://www.unibet.com" target="_blank" rel="noopener noreferrer">Besøg Unibet</a>
+  </div>
+</section>
 
 <footer>
   &copy; 2025 Project B. Spil ansvarligt.
