@@ -1,77 +1,173 @@
-/* General Reset */
+/* ===== Reset & Base Styles ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body and Font */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f9f9f9;
   color: #333;
+  line-height: 1.5;
 }
 
-/* Header */
-header {
-  background-color: #0044cc;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-header nav a {
-  color: white;
-  margin: 0 15px;
+a {
   text-decoration: none;
-  font-weight: bold;
+  color: #0044cc;
 }
 
-header nav a.active {
+a:hover {
   text-decoration: underline;
 }
 
-/* Main Content */
-main {
-  padding: 20px;
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #0044cc;
+  color: white;
+  flex-wrap: wrap;
 }
 
-.article-grid {
+header .logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header nav a {
+  margin-left: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+header nav a.login {
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* ===== Main Sections ===== */
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* ===== Nyheder / Tips Grid ===== */
+.news-grid, .tips-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-.article {
+article, .match, .forum-threads .thread {
   background-color: white;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.article img {
+article img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
-.article h2 {
+article h2 {
   font-size: 1.2em;
-  margin: 10px 0;
+  margin-bottom: 8px;
 }
 
-.article p {
+article p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* ===== TV Page ===== */
+.tv-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tv-schedule .match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.tv-schedule .match div {
+  flex: 1;
+  text-align: center;
+}
+
+/* ===== Forum ===== */
+.forum-threads .thread {
+  padding: 12px;
+}
+
+.forum-threads .thread a {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.forum-threads .thread p {
   font-size: 0.9em;
   color: #666;
 }
 
-/* Footer */
+/* ===== Log ind Form ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  background-color: #0044cc;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #002a80;
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   background-color: #222;
   color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  margin-top: 40px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  header nav a {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .tv-schedule .match {
+    flex-direction: column;
+    gap: 5px;
+  }
 }
