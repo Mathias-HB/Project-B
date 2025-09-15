@@ -6,33 +6,37 @@
   <title>Project B – Nyheder</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Segoe UI',sans-serif;background:#f7f9fc;color:#333;}
-    header{background:#0b1e3d;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;color:white;position:relative;z-index:1000;}
-    .logo{display:flex;align-items:center;}
-    .logo-img{height:88px;width:auto;display:block;}
-    nav{position:relative;}
-    ul.menu{list-style:none;display:flex;gap:2rem;}
-    ul.menu>li>a{color:white;text-decoration:none;font-weight:500;padding:0.5rem;transition:color 0.2s;}
-    ul.menu>li:hover>a{color:#00ccff;}
-    .hero{padding:4rem 2rem;text-align:center;background:linear-gradient(to right,#0b1e3d,#153c5d);color:white;}
-    .hero h1{font-size:2.5rem;margin-bottom:1rem;}
-    .hero p{font-size:1.1rem;max-width:600px;margin:auto;}
-    footer{text-align:center;padding:1.5rem;background:#0b1e3d;color:white;font-size:0.9rem;margin-top:4rem;}
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
+    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; position:relative; z-index:1000; }
+    .logo { display:flex; align-items:center; }
+    .logo-img { height:88px; width:auto; display:block; }
+    nav { position:relative; }
+    ul.menu { list-style:none; display:flex; gap:2rem; }
+    ul.menu > li { position:relative; }
+    ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; transition: color 0.2s ease; }
+    ul.menu > li:hover > a { color:#00ccff; }
+    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; max-width:600px; margin:auto; }
+    footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
 
-    .tabs{display:flex;justify-content:center;margin:2rem 0;gap:1rem;flex-wrap:wrap;}
-    .tab-btn{background:white;border:1px solid #0b1e3d;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;font-weight:500;transition:all 0.2s;}
-    .tab-btn.active,.tab-btn:hover{background:#0b1e3d;color:white;}
-    .news-container{max-width:1100px;margin:0 auto 3rem auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;padding:0 2rem;}
-    .news-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);display:flex;flex-direction:column;transition:transform 0.2s;}
-    .news-card:hover{transform:translateY(-5px);}
-    .news-card img{width:100%;height:180px;object-fit:cover;}
-    .news-card .news-content{padding:1rem;display:flex;flex-direction:column;flex:1;}
-    .news-card .category{font-size:0.85rem;color:#0077cc;margin-bottom:0.3rem;text-transform:uppercase;font-weight:600;}
-    .news-card h3{font-size:1.2rem;margin-bottom:0.5rem;}
-    .news-card p{font-size:0.95rem;margin-bottom:1rem;flex:1;}
-    .news-card a{text-decoration:none;color:white;background:#0b1e3d;padding:0.5rem 1rem;border-radius:6px;text-align:center;transition:background 0.2s;}
-    .news-card a:hover{background:#0077cc;}
+    /* Tabs */
+    .tabs { display:flex; justify-content:center; margin:2rem 0; gap:1rem; flex-wrap:wrap; }
+    .tab-btn { background:white; border:1px solid #0b1e3d; border-radius:6px; padding:0.5rem 1rem; cursor:pointer; font-weight:500; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background:#0b1e3d; color:white; }
+
+    /* News grid */
+    .news-container { max-width:1100px; margin:0 auto 3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; padding:0 2rem; }
+    .news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; }
+    .news-card:hover { transform:translateY(-5px); }
+    .news-card img { width:100%; height:180px; object-fit:cover; }
+    .news-card .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
+    .news-card .category { font-size:0.85rem; color:#0077cc; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
+    .news-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
+    .news-card p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
+    .news-card a { text-decoration:none; color:white; background:#0b1e3d; padding:0.5rem 1rem; border-radius:6px; text-align:center; display:inline-block; transition:background 0.2s; }
+    .news-card a:hover { background:#0077cc; }
   </style>
 </head>
 <body>
@@ -68,9 +72,9 @@
 <!-- News cards -->
 <div class="news-container">
 
-  <!-- DANMARK -->
+  <!-- Danmark (4) -->
   <div class="news-card" data-tab="danmark">
-    <img src="https://source.unsplash.com/600x400/?football,denmark" alt="FC København vinder topkampen">
+    <img src="https://picsum.photos/seed/fck/400/200" alt="FC København vinder topkampen">
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>FC København vinder topkampen</h3>
@@ -79,7 +83,7 @@
     </div>
   </div>
   <div class="news-card" data-tab="danmark">
-    <img src="https://source.unsplash.com/600x400/?soccer,denmark" alt="Odense besejrer Silkeborg">
+    <img src="https://picsum.photos/seed/odense/400/200" alt="Odense besejrer Silkeborg">
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>Odense besejrer Silkeborg</h3>
@@ -88,65 +92,65 @@
     </div>
   </div>
   <div class="news-card" data-tab="danmark">
-    <img src="https://source.unsplash.com/600x400/?brondby,stadium" alt="Brøndby taber terræn">
+    <img src="https://picsum.photos/seed/agf/400/200" alt="AGF tager vigtig sejr">
     <div class="news-content">
       <div class="category">Superligaen</div>
-      <h3>Brøndby taber terræn</h3>
-      <p>Brøndby IF tabte endnu engang og risikerer at miste kontakten til toppen af ligaen.</p>
+      <h3>AGF tager vigtig sejr</h3>
+      <p>AGF leverede en stærk indsats og besejrede FC Midtjylland i Aarhus.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
   <div class="news-card" data-tab="danmark">
-    <img src="https://source.unsplash.com/600x400/?football,stadium" alt="AGF sikrer point">
+    <img src="https://picsum.photos/seed/randers/400/200" alt="Randers i målrigt opgør">
     <div class="news-content">
       <div class="category">Superligaen</div>
-      <h3>AGF sikrer point i Aarhus</h3>
-      <p>AGF spillede uafgjort mod FC Midtjylland og fastholder deres plads i top 6.</p>
+      <h3>Randers i målrigt opgør</h3>
+      <p>Randers FC spillede 3-3 mod AaB i en dramatisk kamp.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <!-- ENGLAND -->
-  <div class="news-card" data-tab="england" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?manchester,football" alt="Manchester United topper ligaen">
+  <!-- England (4) -->
+  <div class="news-card" data-tab="england">
+    <img src="https://picsum.photos/seed/manu/400/200" alt="Manchester United topper ligaen">
     <div class="news-content">
       <div class="category">Premier League</div>
       <h3>Manchester United topper ligaen</h3>
-      <p>United tog sejren mod Liverpool og fortsætter jagten på Premier League-titlen.</p>
+      <p>Manchester United tog sejren mod Liverpool og fortsætter jagten på PL-titlen.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="england" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?chelsea,football" alt="Chelsea vinder hjemme">
+  <div class="news-card" data-tab="england">
+    <img src="https://picsum.photos/seed/chelsea/400/200" alt="Chelsea stærk hjemmebaneform">
     <div class="news-content">
       <div class="category">Premier League</div>
-      <h3>Chelsea vinder hjemme</h3>
-      <p>Chelsea besejrede Arsenal i en tæt London-derby.</p>
+      <h3>Chelsea stærk hjemmebaneform</h3>
+      <p>Chelsea vandt endnu engang på Stamford Bridge og ligner en seriøs udfordrer.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="england" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?liverpool,football" alt="Liverpool kæmper sig tilbage">
+  <div class="news-card" data-tab="england">
+    <img src="https://picsum.photos/seed/city/400/200" alt="Manchester City scorer mange mål">
     <div class="news-content">
       <div class="category">Premier League</div>
-      <h3>Liverpool kæmper sig tilbage</h3>
-      <p>Liverpool vendte kampen mod Tottenham efter en dramatisk afslutning.</p>
+      <h3>Manchester City scorer mange mål</h3>
+      <p>City vandt 5-0 og viste endnu engang deres offensive styrke.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="england" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?arsenal,football" alt="Arsenal i topform">
+  <div class="news-card" data-tab="england">
+    <img src="https://picsum.photos/seed/arsenal/400/200" alt="Arsenal holder fast i top 4">
     <div class="news-content">
       <div class="category">Premier League</div>
-      <h3>Arsenal i topform</h3>
-      <p>Arsenal fortsatte deres imponerende stime med endnu en storsejr.</p>
+      <h3>Arsenal holder fast i top 4</h3>
+      <p>Arsenal hentede en vigtig udesejr og holder fast i Champions League-pladsen.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <!-- SPANIEN -->
-  <div class="news-card" data-tab="spanien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?real,madrid" alt="Real Madrid vinder El Clasico">
+  <!-- Spanien (4) -->
+  <div class="news-card" data-tab="spanien">
+    <img src="https://picsum.photos/seed/realmadrid/400/200" alt="Real Madrid vinder El Clasico">
     <div class="news-content">
       <div class="category">La Liga</div>
       <h3>Real Madrid vinder El Clasico</h3>
@@ -154,37 +158,37 @@
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="spanien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?barcelona,football" alt="Barcelona rejser sig igen">
+  <div class="news-card" data-tab="spanien">
+    <img src="https://picsum.photos/seed/barcelona/400/200" alt="Barcelona svarer igen">
     <div class="news-content">
       <div class="category">La Liga</div>
-      <h3>Barcelona rejser sig igen</h3>
-      <p>Barcelona fik tre vigtige point i jagten på Champions League-pladserne.</p>
+      <h3>Barcelona svarer igen</h3>
+      <p>Barca vandt 4-1 over Sevilla og genfandt formen.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="spanien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?sevilla,stadium" alt="Sevilla imponerer">
+  <div class="news-card" data-tab="spanien">
+    <img src="https://picsum.photos/seed/atleti/400/200" alt="Atlético holder presset">
     <div class="news-content">
       <div class="category">La Liga</div>
-      <h3>Sevilla imponerer</h3>
-      <p>Sevilla leverede en stærk præstation mod Villarreal.</p>
+      <h3>Atlético holder presset</h3>
+      <p>Atlético Madrid besejrede Villarreal og er stadig med i toppen.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="spanien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?atletico,madrid" alt="Atletico holder fast">
+  <div class="news-card" data-tab="spanien">
+    <img src="https://picsum.photos/seed/valencia/400/200" alt="Valencia vinder vigtigt bundopgør">
     <div class="news-content">
       <div class="category">La Liga</div>
-      <h3>Atletico holder fast</h3>
-      <p>Atletico Madrid vandt ude mod Valencia og fastholder presset på toppen.</p>
+      <h3>Valencia vinder vigtigt bundopgør</h3>
+      <p>Valencia slog Mallorca i en tæt kamp.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
 
-  <!-- ITALIEN -->
-  <div class="news-card" data-tab="italien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?juventus,football" alt="Juventus slår Inter">
+  <!-- Italien (4) -->
+  <div class="news-card" data-tab="italien">
+    <img src="https://picsum.photos/seed/juve/400/200" alt="Juventus slår Inter">
     <div class="news-content">
       <div class="category">Serie A</div>
       <h3>Juventus slår Inter</h3>
@@ -192,23 +196,104 @@
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="italien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?acmilan,football" alt="Milan dominerer igen">
+  <div class="news-card" data-tab="italien">
+    <img src="https://picsum.photos/seed/milan/400/200" alt="AC Milan tæt på toppen">
     <div class="news-content">
       <div class="category">Serie A</div>
-      <h3>Milan dominerer igen</h3>
-      <p>AC Milan kørte en sikker sejr hjem mod Napoli.</p>
+      <h3>AC Milan tæt på toppen</h3>
+      <p>Milan besejrede Roma og holder fast i topstriden.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="italien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?inter,football" alt="Inter vinder derby">
+  <div class="news-card" data-tab="italien">
+    <img src="https://picsum.photos/seed/napoli/400/200" alt="Napoli vinder hjemme">
     <div class="news-content">
       <div class="category">Serie A</div>
-      <h3>Inter vinder derby</h3>
-      <p>Inter tog en vigtig sejr i byderbyet mod AC Milan.</p>
+      <h3>Napoli vinder hjemme</h3>
+      <p>Napoli slog Torino foran deres fans.</p>
       <a href="#">Læs mere</a>
     </div>
   </div>
-  <div class="news-card" data-tab="italien" style="display:none;">
-    <img src="https://source.unsplash.com/600x400/?nap
+  <div class="news-card" data-tab="italien">
+    <img src="https://picsum.photos/seed/lazio/400/200" alt="Lazio overrasker">
+    <div class="news-content">
+      <div class="category">Serie A</div>
+      <h3>Lazio overrasker</h3>
+      <p>Lazio vandt ude mod Atalanta.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+
+  <!-- Transfers (4) -->
+  <div class="news-card" data-tab="transfers">
+    <img src="https://picsum.photos/seed/mbappe/400/200" alt="Mbappé rygtes til Real Madrid">
+    <div class="news-content">
+      <div class="category">Transfers</div>
+      <h3>Mbappé rygtes til Real Madrid</h3>
+      <p>Rygterne tager til: Mbappé kan være på vej til Bernabéu allerede til sommer.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+  <div class="news-card" data-tab="transfers">
+    <img src="https://picsum.photos/seed/kane/400/200" alt="Harry Kane på vej væk?">
+    <div class="news-content">
+      <div class="category">Transfers</div>
+      <h3>Harry Kane på vej væk?</h3>
+      <p>Tottenham-stjernen linkes igen til Bayern München.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+  <div class="news-card" data-tab="transfers">
+    <img src="https://picsum.photos/seed/haaland/400/200" alt="Haaland til Spanien?">
+    <div class="news-content">
+      <div class="category">Transfers</div>
+      <h3>Haaland til Spanien?</h3>
+      <p>Rygter siger, at både Real Madrid og Barcelona følger nordmanden tæt.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+  <div class="news-card" data-tab="transfers">
+    <img src="https://picsum.photos/seed/odegaard/400/200" alt="Ødegaard tilbage til La Liga?">
+    <div class="news-content">
+      <div class="category">Transfers</div>
+      <h3>Ødegaard tilbage til La Liga?</h3>
+      <p>Arsenal-kaptajnen rygtes til Atletico Madrid.</p>
+      <a href="#">Læs mere</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Project B. Spil ansvarligt.
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const newsCards = document.querySelectorAll('.news-card');
+
+function showTab(tabName) {
+  newsCards.forEach(card => {
+    if (card.dataset.tab === tabName) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Show only default tab on load
+const defaultTab = document.querySelector('.tab-btn.active').dataset.tab;
+showTab(defaultTab);
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(btn => btn.classList.remove('active'));
+    tab.classList.add('active');
+    showTab(tab.dataset.tab);
+  });
+});
+</script>
+
+</body>
+</html>
