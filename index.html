@@ -1,313 +1,307 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Project B – Nyheder</title>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
-header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; position:relative; z-index:1000; }
-.logo { display:flex; align-items:center; }
-.logo-img { height:88px; width:auto; display:block; }
-nav { position:relative; }
-ul.menu { list-style:none; display:flex; gap:2rem; }
-ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; transition: color 0.2s ease; }
-ul.menu > li:hover > a { color:#00ccff; }
-.hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
-.hero h1 { font-size:2.5rem; margin-bottom:1rem; }
-.hero p { font-size:1.1rem; max-width:600px; margin:auto; }
-footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; clear:both; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project B – Nyheder</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
+    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; position:relative; z-index:1000; }
+    .logo { display:flex; align-items:center; }
+    .logo-img { height:88px; width:auto; display:block; }
+    nav { position:relative; }
+    ul.menu { list-style:none; display:flex; gap:2rem; }
+    ul.menu > li { position:relative; }
+    ul.menu > li > a { color:white; text-decoration:none; font-weight:500; padding:0.5rem; display:block; transition: color 0.2s ease; }
+    ul.menu > li:hover > a { color:#00ccff; }
+    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; max-width:600px; margin:auto; }
+    footer { text-align:center; padding:1.5rem; background-color:#0b1e3d; color:white; font-size:0.9rem; margin-top:4rem; }
 
-/* Tabs */
-.tabs { display:flex; justify-content:center; margin:2rem 0; gap:1rem; flex-wrap:wrap; }
-.tab-btn { background:white; border:1px solid #0b1e3d; border-radius:6px; padding:0.5rem 1rem; cursor:pointer; font-weight:500; transition: all 0.2s; }
-.tab-btn.active, .tab-btn:hover { background:#0b1e3d; color:white; }
+    /* Tabs */
+    .tabs { display:flex; justify-content:center; margin:2rem 0; gap:1rem; flex-wrap:wrap; }
+    .tab-btn { background:white; border:1px solid #0b1e3d; border-radius:6px; padding:0.5rem 1rem; cursor:pointer; font-weight:500; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background:#0b1e3d; color:white; }
 
-/* News grid */
-.news-container { max-width:1200px; margin:0 auto 3rem auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; padding:0 2rem; }
-.news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; cursor:pointer; text-decoration:none; color:inherit; }
-.news-card:hover { transform:translateY(-5px); }
-.news-card img { width:100%; height:200px; object-fit:cover; transition: transform 0.3s; }
-.news-card:hover img { transform: scale(1.05); }
-.news-card .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
-.news-card .category { font-size:0.85rem; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
-.news-card.breaking { background:#fff5cc; }
-.news-card.breaking .category, .news-card.breaking h3 { color:red; }
-.news-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
-.news-card p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
-/* Large breaking */
-.news-card.breaking.large { grid-column: span 2; grid-row: span 2; height:400px; }
-.news-card.large img { height:100%; object-fit:cover; }
-</style>
+    /* News grid */
+    .news-container { max-width:1100px; margin:0 auto 3rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; padding:0 2rem; }
+    .news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; cursor:pointer; position:relative; }
+    .news-card:hover { transform:translateY(-5px); }
+    .news-card img { width:100%; height:200px; object-fit:cover; }
+    .news-card.large img { height:320px; }
+    .news-card .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
+    .news-card .category { font-size:0.85rem; color:#0077cc; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
+    .news-card.breaking .category { background: yellow; color: red; padding: 0.2rem 0.4rem; display:inline-block; border-radius:3px; }
+    .news-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
+    .news-card p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
+    .news-card a { display:none; }
+
+    @media(max-width:768px){
+      .news-card.large img { height:220px; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-<a href="index.html" class="logo"><img src="logo.png" alt="Project B" class="logo-img"></a>
-<nav>
-<ul class="menu">
-<li><a href="tv.html">TV</a></li>
-<li><a href="tips.html">Tips</a></li>
-<li><a href="forum.html">Forum</a></li>
-<li><a href="bookmakere.html">Bookmakere</a></li>
-<li><a href="nyhedsbrev.html">Nyhedsbrev</a></li>
-<li><a href="login.html">Log ind</a></li>
-</ul>
-</nav>
+  <a href="index.html" class="logo"><img src="logo.png" alt="Project B" class="logo-img"></a>
+  <nav>
+    <ul class="menu">
+      <li><a href="tv.html">TV</a></li>
+      <li><a href="tips.html">Tips</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="bookmakere.html">Bookmakere</a></li>
+      <li><a href="nyhedsbrev.html">Nyhedsbrev</a></li>
+      <li><a href="login.html">Log ind</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="hero">
-<h1>Seneste nyheder</h1>
-<p>Hold dig opdateret på de mest populære sportsgrene og e-sport globalt</p>
+  <h1>Seneste sportsnyheder</h1>
+  <p>Opdateringer fra hele verden: fodbold, basketball, tennis, esport og mere.</p>
 </section>
 
-<!-- Tabs -->
 <div class="tabs">
-<button class="tab-btn active" data-tab="fodbold">Fodbold</button>
-<button class="tab-btn" data-tab="basketball">Basketball</button>
-<button class="tab-btn" data-tab="tennis">Tennis</button>
-<button class="tab-btn" data-tab="esport">Esport</button>
+  <button class="tab-btn active" data-tab="fodbold">Fodbold</button>
+  <button class="tab-btn" data-tab="basketball">Basketball</button>
+  <button class="tab-btn" data-tab="tennis">Tennis</button>
+  <button class="tab-btn" data-tab="esport">Esport</button>
 </div>
 
-<!-- News cards -->
 <div class="news-container">
 
-<!-- Fodbold -->
-<a class="news-card breaking large" href="#">
-<img src="https://picsum.photos/seed/breaking/600/400" alt="Breaking: Ronaldo vender tilbage">
-<div class="news-content">
-<div class="category">Breaking</div>
-<h3>Ronaldo vender tilbage til Manchester United</h3>
-<p>Rygterne er bekræftet: Cristiano Ronaldo skifter tilbage til Premier League-klubben.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/fck/400/200" alt="FC København vinder topkampen">
-<div class="news-content">
-<div class="category">Superligaen</div>
-<h3>FC København vinder topkampen</h3>
-<p>FC København spillede en fantastisk kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/odense/400/200" alt="Odense besejrer Silkeborg">
-<div class="news-content">
-<div class="category">Superligaen</div>
-<h3>Odense besejrer Silkeborg</h3>
-<p>OB vandt med 2-1 og overtager tredjepladsen i Superligaen.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/manu/400/200" alt="Manchester United topper ligaen">
-<div class="news-content">
-<div class="category">Premier League</div>
-<h3>Manchester United topper ligaen</h3>
-<p>Manchester United tog sejren mod Liverpool og fortsætter jagten på PL-titlen.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/realmadrid/400/200" alt="Real Madrid vinder El Clasico">
-<div class="news-content">
-<div class="category">La Liga</div>
-<h3>Real Madrid vinder El Clasico</h3>
-<p>Real Madrid sikrede sejren over Barcelona og styrkede deres position i toppen af La Liga.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/juve/400/200" alt="Juventus slår Inter">
-<div class="news-content">
-<div class="category">Serie A</div>
-<h3>Juventus slår Inter</h3>
-<p>Juventus leverede en stærk præstation og sikrede sejren over Inter Milan.</p>
-</div>
-</a>
+  <!-- Fodbold -->
+  <div class="news-card large breaking" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/fcb/600/400" alt="FC København Breaking">
+    <div class="news-content">
+      <div class="category">Breaking</div>
+      <h3>FC København vinder dramatisk topkamp</h3>
+      <p>FC København sikrede sig sejren i en uforglemmelig kamp mod Brøndby IF.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/ob/400/200" alt="Odense besejrer Silkeborg">
+    <div class="news-content">
+      <div class="category">Superligaen</div>
+      <h3>Odense besejrer Silkeborg</h3>
+      <p>OB vinder med 2-1 og sikrer topplacering i Superligaen.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/agf/400/200" alt="AGF tager vigtig sejr">
+    <div class="news-content">
+      <div class="category">Superligaen</div>
+      <h3>AGF tager vigtig sejr</h3>
+      <p>AGF besejrer FC Midtjylland i en intens kamp.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/randers/400/200" alt="Randers i målrigt opgør">
+    <div class="news-content">
+      <div class="category">Superligaen</div>
+      <h3>Randers i målrigt opgør</h3>
+      <p>Randers FC spiller 3-3 mod AaB i dramatisk kamp.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/manu/400/200" alt="Manchester United">
+    <div class="news-content">
+      <div class="category">Premier League</div>
+      <h3>Manchester United topper ligaen</h3>
+      <p>United tager sejren mod Liverpool og styrker deres topplacering.</p>
+    </div>
+  </div>
+  <div class="news-card breaking" data-tab="fodbold" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/mbappe/400/200" alt="Mbappe Breaking">
+    <div class="news-content">
+      <div class="category">Breaking</div>
+      <h3>Mbappé rygtes til Real Madrid</h3>
+      <p>Overgangen er rygtes at blive offentliggjort snart – fans holder vejret.</p>
+    </div>
+  </div>
 
-<!-- Basketball -->
-<a class="news-card breaking large" href="#">
-<img src="https://picsum.photos/seed/basketbreaking/600/400" alt="Breaking: NBA trade">
-<div class="news-content">
-<div class="category">Breaking</div>
-<h3>Lebron James skifter til Lakers</h3>
-<p>Lebron James tager en overraskende trade tilbage til Los Angeles Lakers.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/lakers/400/200" alt="Lakers vinder kamp">
-<div class="news-content">
-<div class="category">NBA</div>
-<h3>Lakers vinder mod Celtics</h3>
-<p>Lakers sejrer i tæt kamp mod rivalerne fra Boston.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/nba2/400/200" alt="Warriors på toppen">
-<div class="news-content">
-<div class="category">NBA</div>
-<h3>Golden State Warriors på toppen</h3>
-<p>Warriors fortsætter deres imponerende sejrsrække.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/nba3/400/200" alt="Bulls scorer stort">
-<div class="news-content">
-<div class="category">NBA</div>
-<h3>Bulls scorer stort mod Knicks</h3>
-<p>Chicago Bulls vinder med 120-110 i spændende kamp.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/nba4/400/200" alt="Miami Heat topper">
-<div class="news-content">
-<div class="category">NBA</div>
-<h3>Miami Heat topper Eastern Conference</h3>
-<p>Miami Heat holder føringen efter seneste runde.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/nba5/400/200" alt="Bucks vinder">
-<div class="news-content">
-<div class="category">NBA</div>
-<h3>Bucks vinder igen</h3>
-<p>Milwaukee Bucks sikrer en vigtig sejr i østligaen.</p>
-</div>
-</a>
+  <!-- Basketball -->
+  <div class="news-card large breaking" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/nba/600/400" alt="Lakers Breaking">
+    <div class="news-content">
+      <div class="category">Breaking</div>
+      <h3>Lakers vinder overraskende mod Warriors</h3>
+      <p>En dramatisk sidste-kvarter-sejr sender Lakers til toppen.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/celtics/400/200" alt="Celtics">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Celtics holder fast i top 4</h3>
+      <p>Boston Celtics fortsætter deres stærke sæson.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/bulls/400/200" alt="Bulls">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Chicago Bulls slår rival</h3>
+      <p>Bulls vinder en tæt kamp mod Miami Heat.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/warriors/400/200" alt="Warriors">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Golden State Warriors sejrer</h3>
+      <p>Warriors vinder på hjemmebane i overtid.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/nets/400/200" alt="Nets">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Nets scorer stort</h3>
+      <p>Nets holder fast i playoff-placering.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/lakers/400/200" alt="Lakers">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Lakers planlægger næste kamp</h3>
+      <p>Træneren lover nye taktikker i næste opgør.</p>
+    </div>
+  </div>
 
-<!-- Tennis -->
-<a class="news-card breaking large" href="#">
-<img src="https://picsum.photos/seed/tennisbreaking/600/400" alt="Breaking: Wimbledon">
-<div class="news-content">
-<div class="category">Breaking</div>
-<h3>Novak Djokovic vinder Wimbledon</h3>
-<p>Djokovic triumferer i finalen efter en spændende kamp.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/tennis1/400/200" alt="Federer retire">
-<div class="news-content">
-<div class="category">Tennis</div>
-<h3>Roger Federer trækker sig tilbage</h3>
-<p>Den legendariske tennisspiller siger farvel til banen.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/tennis2/400/200" alt="Serena vinder">
-<div class="news-content">
-<div class="category">Tennis</div>
-<h3>Serena Williams vinder US Open</h3>
-<p>Serena dominerer finalen og vinder turneringen.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/tennis3/400/200" alt="Nadal på toppen">
-<div class="news-content">
-<div class="category">Tennis</div>
-<h3>Nadal på toppen</h3>
-<p>Rafael Nadal sikrer sejren i French Open.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/tennis4/400/200" alt="Tsitsipas vinder">
-<div class="news-content">
-<div class="category">Tennis</div>
-<h3>Tsitsipas vinder turnering</h3>
-<p>Græske stjerne spiller fantastisk og vinder finale.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/tennis5/400/200" alt="Medvedev finalist">
-<div class="news-content">
-<div class="category">Tennis</div>
-<h3>Medvedev finalist</h3>
-<p>Ruslandsspilleren når finalen efter tæt kamp.</p>
-</div>
-</a>
+  <!-- Tennis -->
+  <div class="news-card large breaking" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/federer/600/400" alt="Federer Breaking">
+    <div class="news-content">
+      <div class="category">Breaking</div>
+      <h3>Federer annoncerer comeback</h3>
+      <p>Roger Federer planlægger overraskende comeback næste sæson.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/serena/400/200" alt="Serena">
+    <div class="news-content">
+      <div class="category">Grand Slam</div>
+      <h3>Serena Williams vinder kamp</h3>
+      <p>Williams sejrer i en tæt kamp i Australian Open.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/novak/400/200" alt="Novak">
+    <div class="news-content">
+      <div class="category">Grand Slam</div>
+      <h3>Novak Djokovic vinder titel</h3>
+      <p>Djokovic triumferer i Paris og holder sig i top.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/muguruza/400/200" alt="Muguruza">
+    <div class="news-content">
+      <div class="category">WTA</div>
+      <h3>Muguruza imponerer</h3>
+      <p>Muguruza vinder turnering i Madrid.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/halep/400/200" alt="Halep">
+    <div class="news-content">
+      <div class="category">WTA</div>
+      <h3>Simona Halep tager sejr</h3>
+      <p>Halep viser styrke i kvartfinalen.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="tennis" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/ashleigh/400/200" alt="Barty">
+    <div class="news-content">
+      <div class="category">WTA</div>
+      <h3>Barty vinder finalen</h3>
+      <p>Barty triumferer i et tæt opgør.</p>
+    </div>
+  </div>
 
-<!-- Esport -->
-<a class="news-card breaking large" href="#">
-<img src="https://picsum.photos/seed/esportbreaking/600/400" alt="Breaking: CS:GO">
-<div class="news-content">
-<div class="category">Breaking</div>
-<h3>Astralis vinder major</h3>
-<p>Astralis vinder det prestigefyldte CS:GO major mesterskab.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/esport1/400/200" alt="LOL finaler">
-<div class="news-content">
-<div class="category">Esport</div>
-<h3>Fnatic vinder LoL Worlds</h3>
-<p>Fnatic tager førstepladsen efter spændende finaler.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/esport2/400/200" alt="Dota 2">
-<div class="news-content">
-<div class="category">Esport</div>
-<h3>Team Secret dominerer</h3>
-<p>Dota 2-mesterskabet sikres til Team Secret.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/esport3/400/200" alt="CS:GO finaler">
-<div class="news-content">
-<div class="category">Esport</div>
-<h3>NiP finaler tæt</h3>
-<p>NiP når finalen men taber efter spændende kamp.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/esport4/400/200" alt="Valorant">
-<div class="news-content">
-<div class="category">Esport</div>
-<h3>Sentinels vinder Valorant Masters</h3>
-<p>Sentinels tager førstepladsen i turneringen.</p>
-</div>
-</a>
-<a class="news-card" href="#">
-<img src="https://picsum.photos/seed/esport5/400/200" alt="Overwatch">
-<div class="news-content">
-<div class="category">Esport</div>
-<h3>Overwatch League finaler</h3>
-<p>Finalerne slutter dramatisk med NYXL som vinder.</p>
-</div>
-</a>
+  <!-- Esport -->
+  <div class="news-card large breaking" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/csgo/600/400" alt="CS:GO Breaking">
+    <div class="news-content">
+      <div class="category">Breaking</div>
+      <h3>Team Liquid vinder CS:GO major</h3>
+      <p>Team Liquid overrasker alle og vinder major-turneringen.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/dota2/400/200" alt="Dota2">
+    <div class="news-content">
+      <div class="category">Dota2</div>
+      <h3>OG tager sejr i major</h3>
+      <p>OG vinder stor turnering i Dota2.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/league/400/200" alt="LoL">
+    <div class="news-content">
+      <div class="category">LoL</div>
+      <h3>T1 dominerer LCK</h3>
+      <p>T1 vinder mod stærkt modstandhold.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/valorant/400/200" alt="Valorant">
+    <div class="news-content">
+      <div class="category">Valorant</div>
+      <h3>Sentinels vinder turnering</h3>
+      <p>Sentinels tager titlen i stor Valorant-turnering.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/cs2/400/200" alt="CS2">
+    <div class="news-content">
+      <div class="category">CS2</div>
+      <h3>NAVI sejrer i finalen</h3>
+      <p>NAVI tager titlen efter intens kamp.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="window.location='#';">
+    <img src="https://picsum.photos/seed/valorant2/400/200" alt="Valorant">
+    <div class="news-content">
+      <div class="category">Valorant</div>
+      <h3>Fnatic leverer stærk indsats</h3>
+      <p>Fnatic vinder tæt kamp mod rivaler.</p>
+    </div>
+  </div>
 
 </div>
 
 <footer>
-&copy; 2025 Project B. Spil ansvarligt.
+  &copy; 2025 Project B. Spil ansvarligt.
 </footer>
 
 <script>
 const tabs = document.querySelectorAll('.tab-btn');
 const newsCards = document.querySelectorAll('.news-card');
 
-function showTab(tabName) {
-  newsCards.forEach(card => {
-    if(card.dataset.tab === tabName) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
-    }
+function showTab(tabName){
+  newsCards.forEach(card=>{
+    if(card.dataset.tab===tabName){
+      card.style.display='flex';
+    } else { card.style.display='none'; }
   });
 }
 
-// Sæt data-tab attributter
-newsCards.forEach(card => {
-  if(!card.dataset.tab) {
-    card.dataset.tab = 'fodbold'; // default hvis ikke sat
-  }
-});
+// Vis kun default tab på load
+const defaultTab = document.querySelector('.tab-btn.active').dataset.tab;
+showTab(defaultTab);
 
-// Vis kun standard tab på load
-showTab('fodbold');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(btn => btn.classList.remove('active'));
+tabs.forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    tabs.forEach(btn=>btn.classList.remove('active'));
     tab.classList.add('active');
     showTab(tab.dataset.tab);
+    window.scrollTo({top:document.querySelector('.news-container').offsetTop-20, behavior:'smooth'});
   });
 });
 </script>
