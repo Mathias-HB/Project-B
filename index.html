@@ -5,28 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project B – Nyheder</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI',sans-serif; background-color:#f7f9fc; color:#333; }
-    header { background-color:#0b1e3d; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; color:white; }
-    .logo-img { height:88px; width:auto; display:block; }
-    nav ul { list-style:none; display:flex; gap:2rem; }
-    nav a { color:white; text-decoration:none; font-weight:500; }
-    .hero { padding:4rem 2rem; text-align:center; background:linear-gradient(to right,#0b1e3d,#153c5d); color:white; }
-    .tabs { display:flex; justify-content:center; margin:2rem 0; gap:1rem; flex-wrap:wrap; }
-    .tab-btn { background:white; border:1px solid #0b1e3d; border-radius:6px; padding:0.5rem 1rem; cursor:pointer; font-weight:500; transition: all 0.2s; }
-    .tab-btn.active, .tab-btn:hover { background:#0b1e3d; color:white; }
-    .news-container { max-width:1100px; margin:0 auto 3rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; padding:0 2rem; }
-    .news-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; transition: transform 0.2s; cursor:pointer; position:relative; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f7f9fc; color: #333; }
+    header { background-color: #0b1e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; position: relative; z-index: 1000; }
+    .logo-img { height: 88px; width: auto; display: block; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { color: white; text-decoration: none; font-weight: 500; padding: 0.5rem; display: block; transition: color 0.2s; }
+    nav a:hover { color: #00ccff; }
+    .hero { padding: 4rem 2rem; text-align: center; background: linear-gradient(to right, #0b1e3d, #153c5d); color: white; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; max-width: 600px; margin: auto; }
+    .tabs { display: flex; justify-content: center; margin: 2rem 0; gap: 1rem; flex-wrap: wrap; }
+    .tab-btn { background: white; border: 1px solid #0b1e3d; border-radius: 6px; padding: 0.5rem 1rem; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background: #0b1e3d; color: white; }
+    .news-container { max-width: 1100px; margin: 0 auto 3rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 2rem; }
+    .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: transform 0.2s; cursor: pointer; position: relative; }
     .news-card.large { grid-column: span 2; }
-    .news-card:hover { transform:translateY(-5px); }
-    .news-card img { width:100%; height:180px; object-fit:cover; }
-    .news-content { padding:1rem; display:flex; flex-direction:column; flex:1; }
-    .category { font-size:0.85rem; color:#0077cc; margin-bottom:0.3rem; text-transform:uppercase; font-weight:600; }
-    h3 { font-size:1.2rem; margin-bottom:0.5rem; }
-    p { font-size:0.95rem; margin-bottom:1rem; flex:1; }
-    .breaking { position:absolute; top:10px; left:10px; background:yellow; color:red; font-weight:bold; padding:0.3rem 0.5rem; border-radius:4px; font-size:0.85rem; text-transform:uppercase; z-index:2; }
-
-    @media(max-width:768px) {
+    .news-card:hover { transform: translateY(-5px); }
+    .news-card img { width: 100%; height: 180px; object-fit: cover; }
+    .news-content { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
+    .category { font-size: 0.85rem; color: #0077cc; margin-bottom: 0.3rem; text-transform: uppercase; font-weight: 600; }
+    .news-content h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .news-content p { font-size: 0.95rem; margin-bottom: 1rem; flex: 1; }
+    .breaking { position: absolute; top: 10px; left: 10px; background: yellow; color: red; font-weight: bold; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.85rem; text-transform: uppercase; z-index: 2; }
+    footer { text-align: center; padding: 1.5rem; background-color: #0b1e3d; color: white; font-size: 0.9rem; margin-top: 4rem; }
+    @media(max-width: 768px) {
       .news-card.large { grid-column: span 1; }
     }
   </style>
@@ -64,11 +67,11 @@
   <!-- Fodbold -->
   <div class="news-card large" data-tab="fodbold" onclick="location.href='#'">
     <div class="breaking">BREAKING</div>
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/00/football-1864460_1280.jpg" alt="Fodboldkamp">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/00/football-1864460_1280.jpg" alt="Fodboldkamp">  
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>FC København vinder topkampen</h3>
-      <p>FC København spillede en fantastisk kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
+      <p>FC København spillede en kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
     </div>
   </div>
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
@@ -76,40 +79,40 @@
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>Odense besejrer Silkeborg</h3>
-      <p>OB vandt med 2‑1 og overtager tredjepladsen i Superligaen.</p>
+      <p>OB vandt med 2-1 og overtager tredjepladsen i Superligaen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/05/03/14/58/stadium-1377371_1280.jpg" alt="La Liga stadion">
+    <img src="https://cdn.pixabay.com/photo/2016/05/03/14/58/stadium-1377371_1280.jpg" alt="Stadion">
     <div class="news-content">
       <div class="category">La Liga</div>
-      <h3>Real Madrid vinder El Clasico</h3>
-      <p>Real Madrid sikrede sejren over Barcelona og styrkede deres position i toppen af La Liga.</p>
+      <h3>Real Madrid vinder El Clasico</h3>
+      <p>Real Madrid sikrede sejren over Barcelona og styrkede deres position.</p>
     </div>
   </div>
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
     <div class="breaking">BREAKING</div>
-    <img src="https://cdn.pixabay.com/photo/2018/03/03/23/15/player-3192714_1280.jpg" alt="Mbappé rygtes til Real Madrid">
+    <img src="https://cdn.pixabay.com/photo/2018/03/03/23/15/player-3192714_1280.jpg" alt="Spiller transfer">
     <div class="news-content">
       <div class="category">Transfers</div>
       <h3>Mbappé rygtes til Real Madrid</h3>
-      <p>Rygterne tager til: Mbappé kan være på vej til Bernabéu allerede til sommer.</p>
+      <p>Rygterne siger, han kan være på vej til Bernabéu allerede til sommer.</p>
     </div>
   </div>
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2018/02/21/15/19/juventus-3166596_1280.jpg" alt="Juventus slår Inter">
+    <img src="https://cdn.pixabay.com/photo/2018/02/21/15/19/juventus-3166596_1280.jpg" alt="Juventus">
     <div class="news-content">
       <div class="category">Serie A</div>
       <h3>Juventus slår Inter</h3>
-      <p>Juventus leverede en stærk præstation og sikrede sejren over Inter Milan.</p>
+      <p>Juventus leverede en stærk præstation og besejrede Inter Milan.</p>
     </div>
   </div>
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/08/06/10/37/liverpool-2594834_1280.jpg" alt="Liverpool i topform">
+    <img src="https://cdn.pixabay.com/photo/2017/08/06/10/37/liverpool-2594834_1280.jpg" alt="Liverpool">
     <div class="news-content">
       <div class="category">Premier League</div>
       <h3>Liverpool i topform</h3>
-      <p>Liverpool sejrede stort og holder fast i top 4 i Premier League.</p>
+      <p>Liverpool sejrede stort og ligger stabilt i top 4.</p>
     </div>
   </div>
 
@@ -120,11 +123,27 @@
     <div class="news-content">
       <div class="category">NBA</div>
       <h3>Lakers vinder stort</h3>
-      <p>Los Angeles Lakers sejrede over Miami Heat med en imponerende margin.</p>
+      <p>Los Angeles Lakers sejrede over Miami Heat med imponerende margin.</p>
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2015/11/07/11/06/basketball-1031276_1280.jpg" alt="Celtics topper øst">
+    <img src="https://cdn.pixabay.com/photo/2017/02/14/10/01/basketball-2060094_1280.jpg" alt="Chicago Bulls">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Bulls laver comeback</h3>
+      <p>Chicago Bulls vendte kampen og sikrede sejren i sidste minut.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/basketball-1869344_1280.jpg" alt="Miami Heat scorer">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Miami Heat scorer rekord</h3>
+      <p>Heat leverede en historisk høj score mod Golden State.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
+    <img src="https://cdn.pixabay.com/photo/2015/11/07/11/06/basketball-1031276_1280.jpg" alt="Boston Celtics">
     <div class="news-content">
       <div class="category">NBA</div>
       <h3>Celtics topper øst</h3>
@@ -132,35 +151,19 @@
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/basketball-1869344_1280.jpg" alt="Miami Heat scorer rekord">
-    <div class="news-content">
-      <div class="category">NBA</div>
-      <h3>Miami Heat scorer rekord</h3>
-      <p>Heat leverede en historisk høj score mod Golden State Warriors.</p>
-    </div>
-  </div>
-  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2015/03/26/09/54/basketball-690341_1280.jpg" alt="Bulls stærk comeback">
-    <div class="news-content">
-      <div class="category">NBA</div>
-      <h3>Bulls stærk comeback</h3>
-      <p>Chicago Bulls vendte kampen og sikrede sig sejren i sidste minut.</p>
-    </div>
-  </div>
-  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/02/14/10/01/basketball-2060094_1280.jpg" alt="Warriors på udebane">
-    <div class="news-content">
-      <div class="category">NBA</div>
-      <h3>Warriors på udebane</h3>
-      <p>Golden State Warriors vinder igen på udebane og styrker positionen.</p>
-    </div>
-  </div>
-  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
     <img src="https://cdn.pixabay.com/photo/2017/09/26/13/54/basketball-2781258_1280.jpg" alt="Knicks overrasker">
     <div class="news-content">
       <div class="category">NBA</div>
-      <h3>New York Knicks overrasker</h3>
-      <p>Knicks tager sejren mod favoritlaget og skaber overskrifter.</p>
+      <h3>Knicks overrasker</h3>
+      <p>New York Knicks tager sejren mod favoritterne.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="basketball" onclick="location.href='#'">
+    <img src="https://cdn.pixabay.com/photo/2015/03/26/09/54/basketball-690341_1280.jpg" alt="Basketball spiller">
+    <div class="news-content">
+      <div class="category">NBA</div>
+      <h3>Dunker med stil</h3>
+      <p>En spiller leverer et spektakulært dunk i sen kamp.</p>
     </div>
   </div>
 
@@ -171,15 +174,15 @@
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Djokovic vinder stort</h3>
-      <p>Serbiske Novak Djokovic sejrede i en dramatisk finale.</p>
+      <p>Novak Djokovic sejrede i en dramatisk finale.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2018/06/08/17/06/tennis-3469990_1280.jpg" alt="Rolig tennis">
+    <img src="https://cdn.pixabay.com/photo/2018/06/08/17/06/tennis-3469990_1280.jpg" alt="Tennis ketsjer">
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Federer hyldes</h3>
-      <p>Roger Federer modtager pris for sin fantastiske karriere.</p>
+      <p>Roger Federer modtager pris for sin karriere.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -195,7 +198,7 @@
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Medvedev topper ranglisten</h3>
-      <p>Daniil Medvedev holder positionen som nr. 1 i verden.</p>
+      <p>Daniil Medvedev holder positionen som nummer 1.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -226,15 +229,7 @@
     </div>
   </div>
   <div class="news-card" data-tab="esport" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/53/game-2037264_1280.jpg" alt="Valorant turnering">
-    <div class="news-content">
-      <div class="category">Valorant – VCT</div>
-      <h3>Sentinels topper Valorant VCT</h3>
-      <p>Sentinels sikrer sig topplaceringen i turneringen.</p>
-    </div>
-  </div>
-  <div class="news-card" data-tab="esport" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/technology-1868202_1280.jpg" alt="CS:GO gamer">
+    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/53/game-2037264_1280.jpg" alt="Gaming setup">
     <div class="news-content">
       <div class="category">CS:GO – ESL</div>
       <h3>Astralis vinder CS:GO ESL</h3>
@@ -242,27 +237,35 @@
     </div>
   </div>
   <div class="news-card" data-tab="esport" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/59/game-2037253_1280.jpg" alt="Dota2 gamers">
+    <img src="https://cdn.pixabay.com/photo/2018/01/12/18/05/virtual-3077740_1280.jpg" alt="Virtual gaming">
+    <div class="news-content">
+      <div class="category">Valorant – VCT</div>
+      <h3>Sentinels topper Valorant VCT</h3>
+      <p>Sentinels sikrer sig topplaceringen i turneringen.</p>
+    </div>
+  </div>
+  <div class="news-card" data-tab="esport" onclick="location.href='#'">
+    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/59/game-2037253_1280.jpg" alt="Dota2 turnering">
     <div class="news-content">
       <div class="category">Dota2 – Turnering</div>
-      <h3>Ny Dota2-turnering starter snart</h3>
-      <p>Der er stor spænding omkring den kommende Dota2-turnering med flere topteams.</p>
+      <h3>Ny Dota2-turnering annonceret</h3>
+      <p>Stort event med topteams.</p>
     </div>
   </div>
   <div class="news-card" data-tab="esport" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/59/game-2037253_1280.jpg" alt="CS:GO lan">
+    <img src="https://cdn.pixabay.com/photo/2019/11/03/17/58/call-of-duty-4604591_1280.jpg" alt="Call of Duty liga">
     <div class="news-content">
-      <div class="category">CS:GO – LAN</div>
-      <h3>LAN CS:GO event snart</h3>
-      <p>Et stort LAN-event for CS:GO er planlagt med mange tilmeldte hold.</p>
+      <div class="category">Call of Duty – League</div>
+      <h3>FaZe vinder COD League</h3>
+      <p>FaZe dominerer i den seneste runde af ligaen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="esport" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2018/01/12/18/05/virtual-3077740_1280.jpg" alt="Gaming turnering">
+    <img src="https://cdn.pixabay.com/photo/2017/02/01/11/59/game-2037253_1280.jpg" alt="Esport generelt">
     <div class="news-content">
       <div class="category">Esport – Generelt</div>
-      <h3>Stor gaming turnering annonceret</h3>
-      <p>En ny international gaming-turnering bliver lanceret med store præmier.</p>
+      <h3>International gaming turnering lanceret</h3>
+      <p>Ny turnering med store præmier.</p>
     </div>
   </div>
 
@@ -273,15 +276,15 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Verstappen vinder Grand Prix</h3>
-      <p>Max Verstappen dominerer weekendens Grand Prix med imponerende kørsel.</p>
+      <p>Max Verstappen dominerer weekendens Grand Prix.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/14/formula-1-1868356_1280.jpg" alt="Hamilton bil">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/14/formula-1-1868356_1280.jpg" alt="Formel 1 racerbane">
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Hamilton på podiet</h3>
-      <p>Lewis Hamilton sikrer andenpladsen i løbet.</p>
+      <p>Lewis Hamilton sikrer sig andenpladsen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -289,7 +292,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Leclerc stærk kvalifikation</h3>
-      <p>Charles Leclerc starter fra pole position til næste løb.</p>
+      <p>Charles Leclerc starter fra pole position.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -297,7 +300,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Sainz udfordrer top 3</h3>
-      <p>Carlos Sainz viser stærk tempo og udfordrer toppen af løbet.</p>
+      <p>Carlos Sainz viser stærk tempo og udfordrer toppen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -305,7 +308,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Red Bull styrker position</h3>
-      <p>Red Bull-teamet bevarer føringen i konstruktørmesterskabet.</p>
+      <p>Red Bull-teamet bevarer føringen i konstruktørmesterskabet.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -313,9 +316,10 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Mercedes forbedrer strategi</h3>
-      <p>Mercedes-teamet viser forbedret taktik under løbet.</p>
+      <p>Mercedes-teamet viser taktisk forbedring.</p>
     </div>
   </div>
+
 </div>
 
 <footer>
@@ -323,25 +327,25 @@
 </footer>
 
 <script>
-const tabs = document.querySelectorAll('.tab-btn');
-const newsCards = document.querySelectorAll('.news-card');
+  const tabs = document.querySelectorAll('.tab-btn');
+  const newsCards = document.querySelectorAll('.news-card');
 
-function showTab(tabName) {
-  newsCards.forEach(card => {
-    card.style.display = (card.dataset.tab === tabName) ? 'flex' : 'none';
+  function showTab(tabName) {
+    newsCards.forEach(card => {
+      card.style.display = (card.dataset.tab === tabName) ? 'flex' : 'none';
+    });
+  }
+
+  const defaultTab = document.querySelector('.tab-btn.active').dataset.tab;
+  showTab(defaultTab);
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(btn => btn.classList.remove('active'));
+      tab.classList.add('active');
+      showTab(tab.dataset.tab);
+    });
   });
-}
-
-const defaultTab = document.querySelector('.tab-btn.active').dataset.tab;
-showTab(defaultTab);
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(btn => btn.classList.remove('active'));
-    tab.classList.add('active');
-    showTab(tab.dataset.tab);
-  });
-});
 </script>
 
 </body>
