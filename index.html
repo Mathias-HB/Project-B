@@ -7,18 +7,17 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', sans-serif; background-color: #f7f9fc; color: #333; }
-    header { background-color: #0b1e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; position: relative; z-index: 1000; }
+    header { background-color: #0b1e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; }
     .logo-img { height: 88px; width: auto; display: block; }
     nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav a { color: white; text-decoration: none; font-weight: 500; padding: 0.5rem; display: block; transition: color 0.2s; }
-    nav a:hover { color: #00ccff; }
+    nav a { color: white; text-decoration: none; font-weight: 500; }
     .hero { padding: 4rem 2rem; text-align: center; background: linear-gradient(to right, #0b1e3d, #153c5d); color: white; }
     .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.1rem; max-width: 600px; margin: auto; }
     .tabs { display: flex; justify-content: center; margin: 2rem 0; gap: 1rem; flex-wrap: wrap; }
     .tab-btn { background: white; border: 1px solid #0b1e3d; border-radius: 6px; padding: 0.5rem 1rem; cursor: pointer; font-weight: 500; transition: all 0.2s; }
     .tab-btn.active, .tab-btn:hover { background: #0b1e3d; color: white; }
-    .news-container { max-width: 1100px; margin: 0 auto 3rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 2rem; }
+    .news-container { max-width: 1100px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 2rem; }
     .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: transform 0.2s; cursor: pointer; position: relative; }
     .news-card.large { grid-column: span 2; }
     .news-card:hover { transform: translateY(-5px); }
@@ -27,11 +26,9 @@
     .category { font-size: 0.85rem; color: #0077cc; margin-bottom: 0.3rem; text-transform: uppercase; font-weight: 600; }
     .news-content h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .news-content p { font-size: 0.95rem; margin-bottom: 1rem; flex: 1; }
-    .breaking { position: absolute; top: 10px; left: 10px; background: yellow; color: red; font-weight: bold; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.85rem; text-transform: uppercase; z-index: 2; }
+    .breaking { position: absolute; top: 10px; left: 10px; background: yellow; color: red; font-weight: bold; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.85rem; text-transform: uppercase; z‑index: 2; }
     footer { text-align: center; padding: 1.5rem; background-color: #0b1e3d; color: white; font-size: 0.9rem; margin-top: 4rem; }
-    @media(max-width: 768px) {
-      .news-card.large { grid-column: span 1; }
-    }
+    @media(max-width: 768px) { .news-card.large { grid-column: span 1; } }
   </style>
 </head>
 <body>
@@ -64,62 +61,75 @@
 </div>
 
 <div class="news-container">
+
   <!-- Fodbold -->
   <div class="news-card large" data-tab="fodbold" onclick="location.href='#'">
     <div class="breaking">BREAKING</div>
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/00/football-1864460_1280.jpg" alt="Fodboldkamp">  
+    <!-- Eksempel: FC København logo fra Wikimedia Commons -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/FC_K%C3%B8benhavn_logo.svg" alt="FC København logo">
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>FC København vinder topkampen</h3>
-      <p>FC København spillede en kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
+      <p>FC København spillede en fantastisk kamp mod Brøndby IF og sikrede sig tre vigtige point.</p>
     </div>
   </div>
+
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2015/11/15/18/30/football-1046543_1280.jpg" alt="Odense besejrer Silkeborg">
+    <!-- Odense Boldklub logo fra commons -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/OB_logo.svg" alt="Odense Boldklub logo">
     <div class="news-content">
       <div class="category">Superligaen</div>
       <h3>Odense besejrer Silkeborg</h3>
-      <p>OB vandt med 2-1 og overtager tredjepladsen i Superligaen.</p>
+      <p>OB vandt med 2‑1 og overtager tredjepladsen i Superligaen.</p>
     </div>
   </div>
+
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/05/03/14/58/stadium-1377371_1280.jpg" alt="Stadion">
+    <!-- Real Madrid-logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid logo">
     <div class="news-content">
-      <div class="category">La Liga</div>
-      <h3>Real Madrid vinder El Clasico</h3>
-      <p>Real Madrid sikrede sejren over Barcelona og styrkede deres position.</p>
+      <div class="category">La Liga</div>
+      <h3>Real Madrid vinder El Clasico</h3>
+      <p>Real Madrid sikrede sejren over Barcelona og styrkede deres position i La Liga.</p>
     </div>
   </div>
+
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
     <div class="breaking">BREAKING</div>
-    <img src="https://cdn.pixabay.com/photo/2018/03/03/23/15/player-3192714_1280.jpg" alt="Spiller transfer">
+    <!-- Billede af Mbappé (fra Commons) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Kylian_Mbapp%C3%A9_2019.jpg" alt="Mbappé">
     <div class="news-content">
       <div class="category">Transfers</div>
       <h3>Mbappé rygtes til Real Madrid</h3>
-      <p>Rygterne siger, han kan være på vej til Bernabéu allerede til sommer.</p>
+      <p>Rygterne tager til: Mbappé kan være på vej til Bernabéu.</p>
     </div>
   </div>
+
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2018/02/21/15/19/juventus-3166596_1280.jpg" alt="Juventus">
+    <!-- Juventus logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Juventus_FC_2017_logo.svg" alt="Juventus logo">
     <div class="news-content">
       <div class="category">Serie A</div>
       <h3>Juventus slår Inter</h3>
-      <p>Juventus leverede en stærk præstation og besejrede Inter Milan.</p>
+      <p>Juventus leverede en stærk præstation mod Inter Milan.</p>
     </div>
   </div>
+
   <div class="news-card" data-tab="fodbold" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/08/06/10/37/liverpool-2594834_1280.jpg" alt="Liverpool">
+    <!-- Liverpool logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" alt="Liverpool FC logo">
     <div class="news-content">
       <div class="category">Premier League</div>
       <h3>Liverpool i topform</h3>
-      <p>Liverpool sejrede stort og ligger stabilt i top 4.</p>
+      <p>Liverpool sejrede stort og holder fast i top 4.</p>
     </div>
   </div>
 
   <!-- Basketball -->
   <div class="news-card large" data-tab="basketball" onclick="location.href='#'">
     <div class="breaking">BREAKING</div>
-    <img src="https://cdn.pixabay.com/photo/2015/09/05/19/02/basketball-925526_1280.jpg" alt="Basketball kamp">
+    <!-- Lakers logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg" alt="Los Angeles Lakers logo">
     <div class="news-content">
       <div class="category">NBA</div>
       <h3>Lakers vinder stort</h3>
@@ -127,15 +137,17 @@
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2017/02/14/10/01/basketball-2060094_1280.jpg" alt="Chicago Bulls">
+    <!-- Celtics logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/Boston_Celtics.svg" alt="Boston Celtics logo">
     <div class="news-content">
       <div class="category">NBA</div>
-      <h3>Bulls laver comeback</h3>
-      <p>Chicago Bulls vendte kampen og sikrede sejren i sidste minut.</p>
+      <h3>Celtics topper øst</h3>
+      <p>Boston Celtics holder fast i førstepladsen i Eastern Conference.</p>
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/basketball-1869344_1280.jpg" alt="Miami Heat scorer">
+    <!-- Heat logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/24/Miami_Heat_logo.svg" alt="Miami Heat logo">
     <div class="news-content">
       <div class="category">NBA</div>
       <h3>Miami Heat scorer rekord</h3>
@@ -143,11 +155,11 @@
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2015/11/07/11/06/basketball-1031276_1280.jpg" alt="Boston Celtics">
+    <img src="https://cdn.pixabay.com/photo/2015/03/26/09/54/basketball-690341_1280.jpg" alt="Basketball spiller">
     <div class="news-content">
       <div class="category">NBA</div>
-      <h3>Celtics topper øst</h3>
-      <p>Boston Celtics holder fast i førstepladsen i Eastern Conference.</p>
+      <h3>Dunker med stil</h3>
+      <p>En spektakulær dunk i sen kamp.</p>
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
@@ -159,11 +171,11 @@
     </div>
   </div>
   <div class="news-card" data-tab="basketball" onclick="location.href='#'">
-    <img src="https://cdn.pixabay.com/photo/2015/03/26/09/54/basketball-690341_1280.jpg" alt="Basketball spiller">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/basketball-1869344_1280.jpg" alt="Heat scoring">
     <div class="news-content">
       <div class="category">NBA</div>
-      <h3>Dunker med stil</h3>
-      <p>En spiller leverer et spektakulært dunk i sen kamp.</p>
+      <h3>Flere point til Heat</h3>
+      <p>Heat fortsætter med at dominere offensivt.</p>
     </div>
   </div>
 
@@ -174,7 +186,7 @@
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Djokovic vinder stort</h3>
-      <p>Novak Djokovic sejrede i en dramatisk finale.</p>
+      <p>Novak Djokovic sejrede i dramatisk finale.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -182,7 +194,7 @@
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Federer hyldes</h3>
-      <p>Roger Federer modtager pris for sin karriere.</p>
+      <p>Roger Federer får ære for sin legendariske karriere.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -190,7 +202,7 @@
     <div class="news-content">
       <div class="category">WTA</div>
       <h3>Serena Williams tilbage</h3>
-      <p>Serena gør comeback i WTA-touren med imponerende spil.</p>
+      <p>Serena gør comeback med imponerende spil.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -198,7 +210,7 @@
     <div class="news-content">
       <div class="category">ATP</div>
       <h3>Medvedev topper ranglisten</h3>
-      <p>Daniil Medvedev holder positionen som nummer 1.</p>
+      <p>Daniil Medvedev holder førstepladsen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -206,7 +218,7 @@
     <div class="news-content">
       <div class="category">WTA</div>
       <h3>Sakkari slår toppseedet</h3>
-      <p>Maria Sakkari overrasker med sejr i kvartfinalen.</p>
+      <p>Maria Sakkari overrasker i kvartfinalen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="tennis" onclick="location.href='#'">
@@ -241,7 +253,7 @@
     <div class="news-content">
       <div class="category">Valorant – VCT</div>
       <h3>Sentinels topper Valorant VCT</h3>
-      <p>Sentinels sikrer sig topplaceringen i turneringen.</p>
+      <p>Sentinels sikrer sig topplaceringen.</p>
     </div>
   </div>
   <div class="news-card" data-tab="esport" onclick="location.href='#'">
@@ -300,7 +312,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Sainz udfordrer top 3</h3>
-      <p>Carlos Sainz viser stærk tempo og udfordrer toppen.</p>
+      <p>Carlos Sainz viser stærk tempo.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -308,7 +320,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Red Bull styrker position</h3>
-      <p>Red Bull-teamet bevarer føringen i konstruktørmesterskabet.</p>
+      <p>Red Bull bevarer føringen i konstruktørmesterskabet.</p>
     </div>
   </div>
   <div class="news-card" data-tab="formel1" onclick="location.href='#'">
@@ -316,7 +328,7 @@
     <div class="news-content">
       <div class="category">Formel 1</div>
       <h3>Mercedes forbedrer strategi</h3>
-      <p>Mercedes-teamet viser taktisk forbedring.</p>
+      <p>Mercedes-teamet forbedrer taktikken.</p>
     </div>
   </div>
 
@@ -329,16 +341,13 @@
 <script>
   const tabs = document.querySelectorAll('.tab-btn');
   const newsCards = document.querySelectorAll('.news-card');
-
   function showTab(tabName) {
     newsCards.forEach(card => {
       card.style.display = (card.dataset.tab === tabName) ? 'flex' : 'none';
     });
   }
-
   const defaultTab = document.querySelector('.tab-btn.active').dataset.tab;
   showTab(defaultTab);
-
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(btn => btn.classList.remove('active'));
